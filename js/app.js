@@ -51,7 +51,13 @@ if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const formData = new FormData(contactForm);
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+        // ✅ FIX: Protección contra doble clic
+        if (submitBtn.disabled) return;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+
         const nombre = contactForm.querySelector('input[type="text"]').value;
         const email = contactForm.querySelector('input[type="email"]').value;
         const telefono = contactForm.querySelector('input[type="tel"]').value;
@@ -60,6 +66,8 @@ if (contactForm) {
         // Validar campos
         if (!nombre || !email || !telefono || !mensaje) {
             alert('Por favor completa todos los campos');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar Mensaje';
             return;
         }
 
@@ -90,6 +98,12 @@ Gracias
 
         // Limpiar formulario
         contactForm.reset();
+
+        // ✅ FIX: Rehabilitar botón después de enviar
+        setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar Mensaje';
+        }, 3000);
     });
 }
 
@@ -98,22 +112,26 @@ Gracias
 // ============================================
 
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+            entry.target.classList.add('visible');
             observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Observar todos los elementos con clases específicas
-document.querySelectorAll('.service-card, .team-card, .stat-item, .testimonial-card').forEach(el => {
-    el.style.opacity = '0';
+// Observar los elementos que deben aparecer al hacer scroll
+const revealElements = document.querySelectorAll(
+    '.about-card, .service-card, .team-card, .stat-item, .testimonial-card, .faq-item, .contact-form, .contact-info'
+);
+
+revealElements.forEach(el => {
+    el.classList.add('reveal');
     observer.observe(el);
 });
 
@@ -148,10 +166,11 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================================
-// RIPPLE EFFECT ON BUTTONS (OPCIONAL)
+// RIPPLE EFFECT ON BUTTONS
 // ============================================
 
-const buttons = document.querySelectorAll('.btn');
+// ✅ FIX: Excluir botones submit del efecto ripple
+const buttons = document.querySelectorAll('.btn:not([type="submit"])');
 
 buttons.forEach(button => {
     button.addEventListener('click', function (e) {
