@@ -201,7 +201,478 @@ function validarEmail(email) {
 }
 
 // ============================================
+// SERVICIOS SLIDER
+// ============================================
+
+const servicesData = [
+    {
+        name: 'Persona Natural',
+        icon: 'fas fa-user',
+        description: 'Asesoría integral en conciliaciones, insolvencias y reclamos ante entidades financieras.',
+        items: [
+            'Conciliaciones',
+            'Proceso de insolvencia',
+            'Demandas ante la Superintendencia Financiera',
+            'Demandas ante la Superintendencia de Industria y Comercio'
+        ]
+    },
+    {
+        name: 'Laboral',
+        icon: 'fas fa-briefcase',
+        description: 'Representación y orientación en conflictos laborales, contratos y pensiones.',
+        items: [
+            'Reclamación administrativa',
+            'Demanda laboral',
+            'Creación de sindicatos',
+            'Conciliaciones',
+            'Elaboración de contratos',
+            'Retiro de cesantías',
+            'Cobro de pensión',
+            'Asistencia en audiencias'
+        ]
+    },
+    {
+        name: 'Civil',
+        icon: 'fas fa-gavel',
+        description: 'Soluciones en derecho civil para inmuebles, divorcios, herencias y obligaciones.',
+        items: [
+            'Compra y venta de inmuebles',
+            'Creación de escrituras',
+            'Contratos',
+            'Asistencia en audiencias',
+            'Conciliaciones',
+            'Fijación de cuota alimentaria',
+            'Aumento y disminución de cuota alimentaria',
+            'Demandas ejecutivas',
+            'Embargos',
+            'Pertenencia',
+            'Usucapión',
+            'Divorcios',
+            'Sucesión'
+        ]
+    },
+    {
+        name: 'Penal',
+        icon: 'fas fa-balance-scale',
+        description: 'Defensa penal experta para procesos judiciales y audiencias de alto impacto.',
+        items: [
+            'Asesoría penal integral',
+            'Defensa en procesos judiciales',
+            'Audiencias penales',
+            'Representación técnica'
+        ]
+    },
+    {
+        name: 'Administrativo',
+        icon: 'fas fa-file-contract',
+        description: 'Gestión de recursos y acciones contra actos administrativos y cobros indebidos.',
+        items: [
+            'Derecho de petición',
+            'Anular comparendos',
+            'Anular cobro del ADRES',
+            'Acción de tutela',
+            'Acción de cumplimiento',
+            'Acción popular',
+            'Revocatoria directa',
+            'Acción de nulidad',
+            'Asistencia en audiencias'
+        ]
+    },
+    {
+        name: 'Servicios Públicos',
+        icon: 'fas fa-water',
+        description: 'Reclamaciones y anulaciones en servicios públicos domiciliarios y consumos indebidos.',
+        items: [
+            'Anular deudas dejadas por terceros',
+            'Anular cobro de recuperación de consumo "Sanción"',
+            'Anular consumos estimados',
+            'Anular cobro de medidores',
+            'Anular cobro de seguros',
+            'Anular cobro de reconexión',
+            'Disminuir cobro de contribuciones',
+            'Disminuir cobro de aseo (propiedades horizontales e inmuebles desocupados)'
+        ]
+    },
+    {
+        name: 'Comerciantes',
+        icon: 'fas fa-store',
+        description: 'Asesoría para comercios con reclamos de contribuciones y pagos indebidos.',
+        items: [
+            'Panadería',
+            'Aserradero',
+            'Textilería',
+            'Litografías',
+            'Carpintería',
+            'Ebanistería',
+            'Fábrica de calzado',
+            'Confección de prendas de vestir',
+            'Procesamiento y conservación de carne, pescado, crustáceos y moluscos'
+        ]
+    },
+    {
+        name: 'Empresas',
+        icon: 'fas fa-industry',
+        description: 'Servicios empresariales legales, recuperación de cartera y apoyo en paneles solares.',
+        items: [
+            'Recuperación de cartera',
+            'Charlas jurídicas a los abogados del PQR',
+            'Asistencia legal en venta de paneles solares',
+            'Disminución en impuestos empresariales',
+            'Resolución de reclamaciones de usuarios'
+        ]
+    },
+    {
+        name: 'Inmobiliarias',
+        icon: 'fas fa-building',
+        description: 'Asesoría para inmobiliarias en cobro a deudores y deudas de arrendatarios.',
+        items: [
+            'Recuperación de cartera',
+            'Cobro a deudores morosos',
+            'Anular deudas dejadas por arrendatarios'
+        ]
+    },
+    {
+        name: 'Propiedades Horizontales',
+        icon: 'fas fa-home',
+        description: 'Servicios legales para conjuntos cerrados y edificios en servicios públicos domiciliarios.',
+        items: [
+            'Exención en cobro de alumbrado público',
+            'Exención en cobro de aseo'
+        ]
+    },
+    {
+        name: 'Alcaldes',
+        icon: 'fas fa-city',
+        description: 'Asesoría técnica para alcaldes en empresas del estado y PGIR.',
+        items: [
+            'Creación de empresas comerciales e industriales del estado',
+            'Asesoría en creación de los PGIR'
+        ]
+    },
+    {
+        name: 'Concejales',
+        icon: 'fas fa-university',
+        description: 'Apoyo jurídico para control político y debates de empresas prestadoras de servicios públicos.',
+        items: [
+            'Asesoría personalizada en debates de control político',
+            'Análisis de empresas de servicios públicos domiciliarios'
+        ]
+    },
+    {
+        name: 'Constructoras',
+        
+        icon: 'fas fa-hard-hat',
+        description: 'Asesoría para constructoras con servicios públicos domiciliarios y reclamos.',
+        items: [
+            'Asistencia personalizada en servicios públicos domiciliarios',
+            'Gestión en proyectos de construcción'
+        ]
+    }
+];
+
+let currentServiceIndex = 0;
+
+function initServiceSlider() {
+    const sliderTrack = document.getElementById('sliderTrack');
+    const prevButton = document.getElementById('sliderPrev');
+    const nextButton = document.getElementById('sliderNext');
+    const modal = document.getElementById('serviceModal');
+    const modalClose = document.getElementById('modalClose');
+
+    if (!sliderTrack || !prevButton || !nextButton || !modal || !modalClose) return;
+
+    function getVisibleCount() {
+        const width = window.innerWidth;
+        if (width >= 900) return 3;
+        if (width >= 640) return 2;
+        return 1;
+    }
+
+    function getTrackSizes(visibleCount) {
+        const style = window.getComputedStyle(sliderTrack);
+        const gap = parseFloat(style.gap) || 0;
+        const trackWidth = sliderTrack.clientWidth;
+        const slideWidth = Math.max(0, (trackWidth - gap * (visibleCount - 1)) / visibleCount);
+        return { slideWidth, gap };
+    }
+
+    function renderSlides() {
+        sliderTrack.innerHTML = servicesData.map((service, index) => `
+            <div class="service-slide">
+                <i class="${service.icon}"></i>
+                <h3>${service.name}</h3>
+                <p class="short-description">${service.description}</p>
+                <button class="read-more-btn" data-index="${index}">Leer Más</button>
+            </div>
+        `).join('');
+
+        const visibleCount = getVisibleCount();
+        const { slideWidth } = getTrackSizes(visibleCount);
+
+        sliderTrack.querySelectorAll('.service-slide').forEach(slide => {
+            slide.style.flex = `0 0 ${slideWidth}px`;
+            slide.style.maxWidth = `${slideWidth}px`;
+        });
+
+        document.querySelectorAll('.read-more-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                openModal(parseInt(button.dataset.index, 10));
+            });
+        });
+    }
+
+    function getTrackOffset(index, visibleCount) {
+        const { slideWidth, gap } = getTrackSizes(visibleCount);
+        return index * (slideWidth + gap);
+    }
+
+    function setSliderPosition(position) {
+        sliderTrack.style.transform = `translateX(-${position}px)`;
+    }
+
+    function updateSlider() {
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(0, servicesData.length - visibleCount);
+        if (currentServiceIndex > maxIndex) {
+            currentServiceIndex = maxIndex;
+        }
+
+        const offset = getTrackOffset(currentServiceIndex, visibleCount);
+        setSliderPosition(offset);
+    }
+
+    function prevSlide() {
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(0, servicesData.length - visibleCount);
+        currentServiceIndex = (currentServiceIndex - 1 + maxIndex + 1) % (maxIndex + 1);
+        updateSlider();
+    }
+
+    function nextSlide() {
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(0, servicesData.length - visibleCount);
+        currentServiceIndex = (currentServiceIndex + 1) % (maxIndex + 1);
+        updateSlider();
+    }
+
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragCurrentOffset = 0;
+
+    function startDrag(event) {
+        isDragging = true;
+        dragStartX = event.clientX;
+        dragCurrentOffset = getTrackOffset(currentServiceIndex, getVisibleCount());
+        sliderTrack.classList.add('dragging');
+        event.preventDefault();
+    }
+
+    function moveDrag(event) {
+        if (!isDragging) return;
+        const currentX = event.clientX;
+        const delta = currentX - dragStartX;
+        sliderTrack.style.transform = `translateX(-${Math.max(0, dragCurrentOffset - delta)}px)`;
+    }
+
+    function endDrag(event) {
+        if (!isDragging) return;
+        isDragging = false;
+        sliderTrack.classList.remove('dragging');
+        const delta = event.clientX - dragStartX;
+        const threshold = 70;
+
+        if (delta < -threshold) {
+            nextSlide();
+        } else if (delta > threshold) {
+            prevSlide();
+        } else {
+            updateSlider();
+        }
+    }
+
+    sliderTrack.addEventListener('pointerdown', startDrag);
+    sliderTrack.addEventListener('pointermove', moveDrag);
+    window.addEventListener('pointerup', endDrag);
+    window.addEventListener('pointercancel', endDrag);
+    sliderTrack.addEventListener('dragstart', (event) => event.preventDefault());
+
+    window.addEventListener('resize', () => {
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(0, servicesData.length - visibleCount);
+        if (currentServiceIndex > maxIndex) {
+            currentServiceIndex = maxIndex;
+        }
+
+        const { slideWidth } = getTrackSizes(visibleCount);
+        sliderTrack.querySelectorAll('.service-slide').forEach(slide => {
+            slide.style.flex = `0 0 ${slideWidth}px`;
+            slide.style.maxWidth = `${slideWidth}px`;
+        });
+        updateSlider();
+    });
+
+    function openModal(index) {
+        const service = servicesData[index];
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+
+        modalTitle.textContent = service.name;
+        modalBody.innerHTML = `
+            <p>${service.description}</p>
+            <h4>Servicios incluidos</h4>
+            <ul>
+                ${service.items.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+        `;
+
+        modal.classList.add('active');
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+    }
+
+    prevButton.addEventListener('click', prevSlide);
+    nextButton.addEventListener('click', nextSlide);
+    modalClose.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') prevSlide();
+        if (event.key === 'ArrowRight') nextSlide();
+        if (event.key === 'Escape') closeModal();
+    });
+
+    renderSlides();
+    updateSlider();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServiceSlider);
+} else {
+    initServiceSlider();
+}
+
+// ============================================
+// MODAL EQUIPO
+// ============================================
+
+const teamMembersData = {
+    erik: {
+        name: 'ERIK JANER COHEN MEDINA',
+        specialty: 'Consultor Servicios Públicos Domiciliarios',
+        img: '/img/erik_cohen.jpeg',
+        perfil: 'Ingeniero de Sistemas con Maestría en Servicios Públicos de la Universidad Externado de Colombia. Más de 20 años de experiencia en el sector público y privado, con profundo conocimiento del marco jurídico, regulatorio y tecnológico de los servicios públicos domiciliarios en Colombia.',
+        formacion: [
+            'Ingeniero de Sistemas — Universidad Autónoma del Caribe',
+            'Master© en Servicios Públicos — Universidad Externado de Colombia',
+            'Certificación CISCO CCNA',
+            'Certificación CISCO IT Essentials',
+            'Ciudadano Digital Internacional (e-Citizen)'
+        ],
+        experiencia: [
+            'Asesor Comercial y Administrativo — AAA de Ovejas S.A. E.S.P. (2023–2025)',
+            'Asesor Operativo y Comercial — ACUAAA E.S.P. (2020–presente)',
+            'Gerente — AAA de Ovejas S.A. (2017–2018)',
+            'Secretario de Planeación Municipal — Alcaldía de Ovejas, Sucre (2016–2017)',
+            'Docente Tiempo Completo — Universidad Nacional Abierta y a Distancia UNAD (2007–2014)',
+            'Instructor Tutor — SENA (2005–2012)'
+        ]
+    },
+    lilly: {
+        name: 'Lylly Marcela Mendoza Márquez',
+        specialty: 'Ingeniera Ambiental y Sanitaria',
+        img: '/img/lilly_marcela.jpeg',
+        perfil: 'Profesional comprometida con la sostenibilidad y la gestión eficiente de los recursos naturales. Especialista en Gestión Ambiental y Energética con experiencia en diagnósticos ambientales, auditorías, diseño de indicadores de desempeño y programas de capacitación para empresas e instituciones.',
+        formacion: [
+            'Ingeniería Ambiental y Sanitaria',
+            'Especialista en Gestión Ambiental y Energética'
+        ],
+        experiencia: [
+            'Consultoría en diagnósticos ambientales para PYMEs',
+            'Diseño e implementación de indicadores de desempeño ambiental',
+            'Auditorías ambientales y verificación de cumplimiento legal',
+            'Gestión ambiental empresarial para comercios, colegios y empresas de servicios',
+            'Capacitaciones en gestión de residuos, uso eficiente del agua y ahorro energético',
+            'Diagnósticos de ahorro de agua y energía para reducción de costos operativos'
+        ]
+    },
+    karen: {
+        name: 'Karen López',
+        specialty: 'Abogada Civil',
+        img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80',
+        perfil: 'Abogada especializada en derecho civil con 15 años de trayectoria profesional. Experta en contratos, responsabilidad civil y litigios de alto impacto.',
+        formacion: [
+            'Derecho — Universidad (pendiente completar)',
+            'Especialización en Derecho Civil y Contratos'
+        ],
+        experiencia: [
+            'Asesoría en contratos civiles y mercantiles',
+            'Responsabilidad civil extracontractual',
+            'Litigios en derecho civil',
+            'Consultoría jurídica para empresas'
+        ]
+    }
+};
+
+function initTeamModal() {
+    const modal = document.getElementById('teamModal');
+    const modalClose = document.getElementById('teamModalClose');
+
+    if (!modal || !modalClose) return;
+
+    document.querySelectorAll('.team-profile-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const key = btn.dataset.member;
+            const member = teamMembersData[key];
+            if (!member) return;
+
+            document.getElementById('teamModalImg').src = member.img;
+            document.getElementById('teamModalImg').alt = member.name;
+            document.getElementById('teamModalName').textContent = member.name;
+            document.getElementById('teamModalSpecialty').textContent = member.specialty;
+
+            document.getElementById('teamModalBody').innerHTML = `
+                <div class="modal-section">
+                    <h4>Perfil Profesional</h4>
+                    <p>${member.perfil}</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Formación Académica</h4>
+                    <ul>
+                        ${member.formacion.map(f => `<li>${f}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h4>Experiencia Laboral</h4>
+                    <ul>
+                        ${member.experiencia.map(e => `<li>${e}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+
+            modal.classList.add('active');
+        });
+    });
+
+    modalClose.addEventListener('click', () => modal.classList.remove('active'));
+    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('active'); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.classList.remove('active'); });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTeamModal);
+} else {
+    initTeamModal();
+}
+// ============================================
 // LOG: Verificar que el script se cargó
 // ============================================
+
 
 console.log('✓ Script cargado correctamente - MJK Abogados');
