@@ -53,7 +53,6 @@ if (contactForm) {
 
         const submitBtn = contactForm.querySelector('button[type="submit"]');
 
-        // ✅ FIX: Protección contra doble clic
         if (submitBtn.disabled) return;
         submitBtn.disabled = true;
         submitBtn.textContent = 'Enviando...';
@@ -63,7 +62,6 @@ if (contactForm) {
         const telefono = contactForm.querySelector('input[type="tel"]').value;
         const mensaje = contactForm.querySelector('textarea').value;
 
-        // Validar campos
         if (!nombre || !email || !telefono || !mensaje) {
             alert('Por favor completa todos los campos');
             submitBtn.disabled = false;
@@ -71,7 +69,6 @@ if (contactForm) {
             return;
         }
 
-        // Crear mensaje para WhatsApp
         const whatsappMessage = `
 Hola MJK Abogados,
 
@@ -89,17 +86,13 @@ Por favor, contáctame a la brevedad.
 Gracias
         `.trim();
 
-        // Enviar por WhatsApp
         const whatsappUrl = `https://wa.me/573233400447?text=${encodeURIComponent(whatsappMessage)}`;
         window.open(whatsappUrl, '_blank');
 
-        // Mostrar mensaje de confirmación
         alert('Tu mensaje será enviado por WhatsApp. ¡Gracias por contactarnos!');
 
-        // Limpiar formulario
         contactForm.reset();
 
-        // ✅ FIX: Rehabilitar botón después de enviar
         setTimeout(() => {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Enviar Mensaje';
@@ -125,9 +118,8 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observar los elementos que deben aparecer al hacer scroll
 const revealElements = document.querySelectorAll(
-    '.about-card, .service-card, .team-card, .stat-item, .testimonial-card, .faq-item, .contact-form, .contact-info'
+    '.about-card, .service-card, .team-card, .testimonial-card, .faq-item, .contact-form, .contact-info'
 );
 
 revealElements.forEach(el => {
@@ -169,7 +161,6 @@ window.addEventListener('scroll', () => {
 // RIPPLE EFFECT ON BUTTONS
 // ============================================
 
-// ✅ FIX: Excluir botones submit del efecto ripple
 const buttons = document.querySelectorAll('.btn:not([type="submit"])');
 
 buttons.forEach(button => {
@@ -190,15 +181,6 @@ buttons.forEach(button => {
         setTimeout(() => ripple.remove(), 600);
     });
 });
-
-// ============================================
-// UTILITY: Validar email
-// ============================================
-
-function validarEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
 
 // ============================================
 // SERVICIOS SLIDER
@@ -360,7 +342,6 @@ const servicesData = [
     },
     {
         name: 'Constructoras',
-        
         icon: 'fas fa-hard-hat',
         description: 'Asesoría para constructoras con servicios públicos domiciliarios y reclamos.',
         items: [
@@ -566,7 +547,7 @@ const teamMembersData = {
     erik: {
         name: 'ERIK JANER COHEN MEDINA',
         specialty: 'Consultor Servicios Públicos Domiciliarios',
-        img: '/img/erik_cohen.jpeg',
+        img: '/img/erik_cohen.png',
         perfil: 'Ingeniero de Sistemas con Maestría en Servicios Públicos de la Universidad Externado de Colombia. Más de 20 años de experiencia en el sector público y privado, con profundo conocimiento del marco jurídico, regulatorio y tecnológico de los servicios públicos domiciliarios en Colombia.',
         formacion: [
             'Ingeniero de Sistemas — Universidad Autónoma del Caribe',
@@ -587,7 +568,7 @@ const teamMembersData = {
     lilly: {
         name: 'Lylly Marcela Mendoza Márquez',
         specialty: 'Ingeniera Ambiental y Sanitaria',
-        img: '/img/lilly_marcela.jpeg',
+        img: '/img/lilly_marcela.png',
         perfil: 'Profesional comprometida con la sostenibilidad y la gestión eficiente de los recursos naturales. Especialista en Gestión Ambiental y Energética con experiencia en diagnósticos ambientales, auditorías, diseño de indicadores de desempeño y programas de capacitación para empresas e instituciones.',
         formacion: [
             'Ingeniería Ambiental y Sanitaria',
@@ -602,20 +583,34 @@ const teamMembersData = {
             'Diagnósticos de ahorro de agua y energía para reducción de costos operativos'
         ]
     },
-    karen: {
-        name: 'Karen López',
-        specialty: 'Abogada Civil',
-        img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80',
-        perfil: 'Abogada especializada en derecho civil con 15 años de trayectoria profesional. Experta en contratos, responsabilidad civil y litigios de alto impacto.',
+    ANA: {
+        name: 'Ana María Torres Kammerer',
+        specialty: 'Abogada',
+        img: '/img/ANA MARÍA TORRES KAMMERER.jpeg',
+        perfil: 'Abogada con experiencia en asesoría jurídica a empresas en materia de servicios públicos, exenciones tributarias e impuesto predial. Ofrece acompañamiento integral en trámites administrativos y representación de clientes con ética y compromiso profesional.',
         formacion: [
-            'Derecho — Universidad (pendiente completar)',
-            'Especialización en Derecho Civil y Contratos'
+            'Título de Abogada — Universidad'
         ],
         experiencia: [
-            'Asesoría en contratos civiles y mercantiles',
-            'Responsabilidad civil extracontractual',
-            'Litigios en derecho civil',
-            'Consultoría jurídica para empresas'
+            'Asesora jurídica — Servicios públicos domiciliarios',
+            'Especialista en derecho tributario territorial',
+            'Asesora en adjudicación de apoyos y beneficios',
+        ]
+    },
+    Julian: {
+        name: 'Julián Santiago Díaz Briceño',
+        specialty: 'Consultor Externo',
+        img: '/img/Julián Santiago Díaz Briceño.png',
+        perfil: 'Abogado especialista en Derecho Administrativo con trayectoria en entidades públicas y sector privado. Cursando Maestría en Servicios Públicos en la Universidad Externado de Colombia. Con experiencia en la Superintendencia de Servicios Públicos, el Consejo de Estado y la Escuela Judicial "Rodrigo Lara Bonilla", brinda asesoría jurídica en derecho administrativo, servicios públicos domiciliarios, procesos sancionatorios y litigio contencioso administrativo y constitucional.',
+        formacion: [
+            'Abogado especialista en Derecho Administrativo',
+            'Maestría en Servicios Públicos — Universidad Externado de Colombia (en curso)'
+        ],
+        experiencia: [
+            'Superintendencia de Servicios Públicos Domiciliarios',
+            'Consejo de Estado',
+            'Escuela Judicial "Rodrigo Lara Bonilla"',
+            'Consultor externo en asesoría jurídica a clientes en energía y servicios públicos domiciliarios'
         ]
     }
 };
@@ -670,9 +665,5 @@ if (document.readyState === 'loading') {
 } else {
     initTeamModal();
 }
-// ============================================
-// LOG: Verificar que el script se cargó
-// ============================================
-
 
 console.log('✓ Script cargado correctamente - MJK Abogados');
