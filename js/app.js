@@ -547,7 +547,7 @@ const teamMembersData = {
     erik: {
         name: 'ERIK JANER COHEN MEDINA',
         specialty: 'Consultor Servicios Públicos Domiciliarios',
-        img: '/img/erik_cohen.png',
+        img: '/img/erik_cohen.jpeg',
         perfil: 'Ingeniero de Sistemas con Maestría en Servicios Públicos de la Universidad Externado de Colombia. Más de 20 años de experiencia en el sector público y privado, con profundo conocimiento del marco jurídico, regulatorio y tecnológico de los servicios públicos domiciliarios en Colombia.',
         formacion: [
             'Ingeniero de Sistemas — Universidad Autónoma del Caribe',
@@ -568,7 +568,7 @@ const teamMembersData = {
     lilly: {
         name: 'Lylly Marcela Mendoza Márquez',
         specialty: 'Ingeniera Ambiental y Sanitaria',
-        img: '/img/lilly_marcela.png',
+        img: '/img/lilly_marcela.jpeg',
         perfil: 'Profesional comprometida con la sostenibilidad y la gestión eficiente de los recursos naturales. Especialista en Gestión Ambiental y Energética con experiencia en diagnósticos ambientales, auditorías, diseño de indicadores de desempeño y programas de capacitación para empresas e instituciones.',
         formacion: [
             'Ingeniería Ambiental y Sanitaria',

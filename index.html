@@ -149,38 +149,55 @@
     </div>
 
     <!-- CLIENTES DESTACADOS -->
-    <section id="clientes" class="services">
+    <section id="clientes" class="clients">
         <div class="container">
             <h2>Clientes Destacados</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80"
-                        alt="Ronaldo Ochoa">
-                    <h3>Ronaldo Ochoa</h3>
-                    <p>Acordeonero</p>
+            <ul class="clients-list">
+                <li class="clients-item">
+                    <span class="clients-name">Ronaldo Ochoa</span>
+                    <span class="clients-role">Acordeonero</span>
+                </li>
+                <li class="clients-item">
+                    <span class="clients-name">Morre Romero</span>
+                    <span class="clients-role">Acordeonero</span>
+                </li>
+                <li class="clients-item">
+                    <span class="clients-name">Ernesto Orozco</span>
+                    <span class="clients-role">Alcalde de Valledupar</span>
+                </li>
+                <li class="clients-item">
+                    <span class="clients-name">Luis Camilo Gonzales</span>
+                    <span class="clients-role">Empresario y promotor de conciertos</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- CEO -->
+    <section id="ceo" class="ceo">
+        <div class="container">
+            <h2>Nuestro CEO</h2>
+            <div class="ceo-content">
+                <div class="ceo-text">
+                    <span class="ceo-tag">Dirección General</span>
+                    <h3>Melkis Junior Kammerer Diaz</h3>
+                    <p class="ceo-role">Abogado de profesión </p>
+                    <p class="ceo-description">
+                        Especialista en servicios públicos, egresado de la universidad externado de Colombia.
+                        Con estudios en insolvencia económica y conciliación, además vocal de control de la ciudad de
+                        valledupar.
+                    </p>
+                    <div class="ceo-signature">
+                        <span>Firma / MJK abogados</span>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80"
-                        alt="Morre Romero">
-                    <h3>Morre Romero</h3>
-                    <p>Acordeonero</p>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80"
-                        alt="Ernesto Orozco">
-                    <h3>Ernesto Orozco</h3>
-                    <p>Alcalde de Valledupar</p>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80"
-                        alt="Luis Camilo Gonzales">
-                    <h3>Luis Camilo Gonzales</h3>
-                    <p>Empresario y promotor de conciertos</p>
+                <div class="ceo-image">
+                    <img src="/img/melkis kammerer.jpeg" alt="Mlekis Junior Kammerer Diaz">
                 </div>
             </div>
         </div>
     </section>
-
 
     <!-- EQUIPO -->
     <section id="equipo" class="team">
@@ -188,19 +205,9 @@
             <h2>Nuestro Equipo</h2>
             <div class="team-grid">
 
-                <div class="team-card">
-                    <img src="/img/erik_cohen.png" alt="ERIK JANER COHEN MEDINA">
-                    <div class="team-card-body">
-                        <h3>Erik Janer Cohen Medina</h3>
-                        <p class="specialty">Consultor Servicios Públicos Domiciliarios</p>
-                        <p class="description">Ingeniero de Sistemas con Maestría en Servicios Públicos. Más de 20 años
-                            de experiencia en el sector público y privado.</p>
-                        <button class="team-profile-btn" data-member="erik">Ver Perfil</button>
-                    </div>
-                </div>
 
                 <div class="team-card">
-                    <img src="/img/lilly_marcela.png" alt="Lylly Marcela Mendoza Márquez">
+                    <img src="/img/lilly_marcela.jpeg" alt="Lylly Marcela Mendoza Márquez">
                     <div class="team-card-body">
                         <h3>Lylly Marcela Mendoza Márquez</h3>
                         <p class="specialty">Ingeniera Ambiental y Sanitaria</p>
@@ -209,6 +216,28 @@
                         <button class="team-profile-btn" data-member="lilly">Ver Perfil</button>
                     </div>
                 </div>
+
+                <div class="team-card">
+                    <img src="/img/erik_cohen.jpeg" alt="ERIK JANER COHEN MEDINA">
+                    <div class="team-card-body">
+                        <h3>Erik Janer Cohen Medina</h3>
+                        <p class="specialty">Consultor Servicios Públicos Domiciliarios</p>
+                        <p class="description">Ingeniero de Sistemas con Maestría en Servicios Públicos. Más de 20 años
+                            de experiencia en el sector público y privado.</p>
+                        <button class="team-profile-btn" data-member="erik">Ver Perfil</button>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="/img/ANA MARÍA TORRES KAMMERER.jpeg" alt="ANA MARÍA TORRES KAMMERER">
+                    <div class="team-card-body">
+                        <h3>Ana María Torres Kammerer</h3>
+                        <p class="specialty">Abogada</p>
+                        <p class="description">Abogada especializada en servicios públicos y derecho tributario, con
+                            experiencia en asesoría jurídica empresarial.</p>
+                        <button class="team-profile-btn" data-member="ANA">Ver Perfil</button>
+                    </div>
+                </div>
+
                 <div class="team-card">
                     <img src="/img/Julián Santiago Díaz Briceño.png" alt="ANA MARÍA TORRES KAMMERER">
                     <div class="team-card-body">
@@ -221,15 +250,28 @@
                 </div>
 
                 <div class="team-card">
-                    <img src="/img/ANA MARÍA TORRES KAMMERER.jpeg" alt="ANA MARÍA TORRES KAMMERER">
+                    <img src="/img/JONATHAN FERNANDO PEREZ VEGA.jpeg" alt="JONATHAN FERNANDO PEREZ VEGA">
                     <div class="team-card-body">
-                        <h3>Ana María Torres Kammerer</h3>
-                        <p class="specialty">Abogada</p>
-                        <p class="description">Abogada especializada en servicios públicos y derecho tributario, con
-                            experiencia en asesoría jurídica empresarial.</p>
-                        <button class="team-profile-btn" data-member="ANA">Ver Perfil</button>
+                        <h3>Jonathan Fernando Perez Vega</h3>
+                        <p class="specialty">Abogado penalista </p>
+                        <p class="description">Abogado penalista con experiencia en asesoría jurídica, anteriormente
+                            asesor jurídico del Ministerio de Vivienda.</p>
+                        <!--<button class="team-profile-btn" data-member="lilly">Ver Perfil</button>-->
                     </div>
                 </div>
+
+                <div class="team-card">
+                    <img src="/img/Hernando alberto atencio cuello.jpeg" alt="Hernando alberto atencio cuello">
+                    <div class="team-card-body">
+                        <h3>Hernando Alberto Atencio Cuello</h3>
+                        <p class="specialty">Abogado especialista en derecho administrativo</p>
+                        <p class="description">4 años de experiencia como docente en la universidad de Pamplona
+                            Labore en la Contraloria general de la republica
+                            10 años de experiencia como abogado penalista</p>
+                        <!--<button class="team-profile-btn" data-member="lilly">Ver Perfil</button>-->
+                    </div>
+                </div>
+
 
 
             </div>
@@ -252,6 +294,7 @@
             <div id="teamModalBody" class="team-modal-body"></div>
         </div>
     </div>
+    
     <!-- FAQ -->
     <section id="faq" class="faq">
         <div class="container">
