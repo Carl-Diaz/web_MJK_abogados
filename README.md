@@ -24,26 +24,31 @@ El diseño transmite profesionalismo, confianza y accesibilidad, con una paleta 
    - Soporte para navegación con flechas, teclado (← →) y arrastre táctil.
 
 4. **Clientes Destacados**
-   - Tarjetas con foto y descripción de clientes representativos.
+   - Lista elegante con nombre y rol de cada cliente representativo.
+   - Clientes actuales: Ronaldo Ochoa, Morre Romero, Ernesto Orozco y Luis Camilo Gonzales.
 
-5. **Equipo**
+5. **CEO**
+   - Sección dedicada a **Melkis Junior Kammerer Diaz**, abogado especialista en servicios públicos y vocal de control de Valledupar.
+   - Layout de dos columnas: texto a la izquierda, foto con marco dorado a la derecha.
+
+6. **Equipo**
    - Cards con foto real, degradado suave sobre la imagen y botón "Ver Perfil".
    - Modal por miembro con tres secciones: **Perfil Profesional**, **Formación Académica** y **Experiencia Laboral**.
    - Miembros actuales:
-     - **Erik Janer Cohen Medina** — Consultor Servicios Públicos Domiciliarios
      - **Lylly Marcela Mendoza Márquez** — Ingeniera Ambiental y Sanitaria
-     - **Karen López** — Abogada Civil
+     - **Erik Janer Cohen Medina** — Consultor Servicios Públicos Domiciliarios
+     - **Ana María Torres Kammerer** — Abogada
+     - **Julián Santiago Díaz Briceño** — Consultor Externo
+     - **Jonathan Fernando Perez Vega** — Abogado Penalista
+     - **Hernando Alberto Atencio Cuello** — Abogado especialista en derecho administrativo
 
-6. **Preguntas Frecuentes**
+7. **Preguntas Frecuentes**
    - Acordeón interactivo con 7 preguntas comunes.
 
-7. **Contacto**
+8. **Contacto**
    - Formulario con nombre, correo, teléfono y mensaje.
    - Envío abre WhatsApp con mensaje prellenado. No requiere backend.
-   - Información adicional: WhatsApp, correo, Instagram, TikTok y cobertura nacional.
-
-8. **Testimonios**
-   - Tres tarjetas con reseñas de clientes y estrellas de calificación.
+   - Información adicional: WhatsApp, correo, Instagram, TikTok, dirección y cobertura nacional.
 
 ---
 
@@ -63,6 +68,8 @@ El diseño transmite profesionalismo, confianza y accesibilidad, con una paleta 
 ---
 
 ## Estructura de archivos
+
+```
 mjk-abogados/
 ├── index.html          # Estructura completa del sitio
 ├── css/
@@ -72,9 +79,15 @@ mjk-abogados/
 ├── img/
 │   ├── logo.jpeg
 │   ├── imagen-principal.jpeg
+│   ├── melkis kammerer.jpeg
 │   ├── erik_cohen.jpeg
-│   └── lilly_marcela.jpeg
+│   ├── lilly_marcela.jpeg
+│   ├── ANA MARÍA TORRES KAMMERER.jpeg
+│   ├── Julián Santiago Díaz Briceño.png
+│   ├── JONATHAN FERNANDO PEREZ VEGA.jpeg
+│   └── Hernando alberto atencio cuello.jpeg
 └── README.md
+```
 
 ---
 
@@ -112,16 +125,6 @@ mjk-abogados/
 ## Notas importantes
 
 - El número de WhatsApp configurado es `+57 323 340 0447`.
-- Las imágenes de Erik y Lylly son fotos reales del equipo; Karen usa imagen de placeholder pendiente de reemplazar.
-- El hero usa `background-size: cover` en todos los breakpoints para evitar espacios en blanco en móvil.
+- Los modales de perfil completo están disponibles para: Lylly Marcela, Erik Cohen, Ana María Torres y Julián Díaz. Jonathan y Hernando muestran la card sin botón de perfil por ahora.
 - Los modales de equipo y servicios se cierran con el botón ✕, clic fuera del modal o tecla `Escape`.
-
----
-
-## Próximas mejoras posibles
-
-- Reemplazar imagen placeholder de Karen López con foto real.
-- Añadir sección de blog o artículos jurídicos.
-- Integrar Google Analytics o Meta Pixel.
-- Agregar mapa de ubicación de oficinas.
-- Implementar formulario con backend (EmailJS o similar) como alternativa al envío por WhatsApp.
+- El hero usa `background-size: cover` en todos los breakpoints para evitar espacios en blanco en móvil.
