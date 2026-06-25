@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Landing page para el despacho legal **MJK Abogados**. El sitio presenta la firma con navegación clara, secciones de información, portafolio de servicios interactivo, clientes destacados, equipo profesional con modales de perfil, preguntas frecuentes y un formulario de contacto que envía el mensaje directamente por WhatsApp.
+Landing page para el despacho legal **MJK Abogados**. El sitio presenta la firma con navegación clara, secciones de información, propuestas descargables en PDF, portafolio de servicios interactivo, equipo profesional con modales de perfil, preguntas frecuentes y un formulario de contacto que envía el mensaje directamente por WhatsApp.
 
 El diseño transmite profesionalismo, confianza y accesibilidad, con una paleta elegante en tonos oscuros (`#0F172A`) y dorados (`#D4AF37`).
 
@@ -18,14 +18,20 @@ El diseño transmite profesionalismo, confianza y accesibilidad, con una paleta 
    - Misión y visión del despacho.
    - Valores profesionales y jurídicos detallados.
 
-3. **Portafolio de Servicios**
-   - Slider interactivo con 13 categorías: Persona Natural, Laboral, Civil, Penal, Administrativo, Servicios Públicos, Comerciantes, Empresas, Inmobiliarias, Propiedades Horizontales, Alcaldes, Concejales y Constructoras.
+3. **Propuestas**
+   - Lista de propuestas comerciales descargables en PDF, organizadas por tipo de cliente.
+   - Propuestas actuales:
+     - Empresarios y Comerciantes
+     - Conjuntos Cerrados, Edificios Residenciales
+     - Empresas de Paneles Solares
+     - Empresas Constructoras
+     - Inmobiliarias
+     - Centros Comerciales
+
+4. **Portafolio de Servicios**
+   - Slider interactivo con 8 categorías: Persona Natural, Laboral, Civil, Penal, Administrativo, Servicios Públicos, Comerciantes y Empresas.
    - Cada categoría abre un modal con los servicios específicos.
    - Soporte para navegación con flechas, teclado (← →) y arrastre táctil.
-
-4. **Clientes Destacados**
-   - Lista elegante con nombre y rol de cada cliente representativo.
-   - Clientes actuales: Ronaldo Ochoa, Morre Romero, Ernesto Orozco y Luis Camilo Gonzales.
 
 5. **CEO**
    - Sección dedicada a **Melkis Junior Kammerer Diaz**, abogado especialista en servicios públicos y vocal de control de Valledupar.
@@ -37,10 +43,11 @@ El diseño transmite profesionalismo, confianza y accesibilidad, con una paleta 
    - Miembros actuales:
      - **Lylly Marcela Mendoza Márquez** — Ingeniera Ambiental y Sanitaria
      - **Erik Janer Cohen Medina** — Consultor Servicios Públicos Domiciliarios
-     - **Ana María Torres Kammerer** — Abogada
      - **Julián Santiago Díaz Briceño** — Consultor Externo
+     - **Ana María Torres Kammerer** — Abogada
      - **Jonathan Fernando Perez Vega** — Abogado Penalista
      - **Hernando Alberto Atencio Cuello** — Abogado especialista en derecho administrativo
+   - Los modales de perfil completo están disponibles para: Lylly Marcela, Erik Cohen, Ana María Torres y Julián Díaz. Jonathan y Hernando muestran la card sin botón de perfil por ahora.
 
 7. **Preguntas Frecuentes**
    - Acordeón interactivo con 7 preguntas comunes.
@@ -48,7 +55,7 @@ El diseño transmite profesionalismo, confianza y accesibilidad, con una paleta 
 8. **Contacto**
    - Formulario con nombre, correo, teléfono y mensaje.
    - Envío abre WhatsApp con mensaje prellenado. No requiere backend.
-   - Información adicional: WhatsApp, correo, Instagram, TikTok, dirección y cobertura nacional.
+   - Información adicional: WhatsApp, correo, Instagram, TikTok, Facebook, dirección (Calle 13A # 11A - 41, Valledupar - Cesar) y cobertura nacional.
 
 ---
 
@@ -58,7 +65,7 @@ El diseño transmite profesionalismo, confianza y accesibilidad, con una paleta 
 - Hero con imagen a pantalla completa en todos los tamaños de pantalla.
 - Slider de servicios con drag táctil y navegación por teclado.
 - Cards de equipo con efecto degradado foto → tarjeta.
-- Modales de perfil profesional para cada miembro del equipo.
+- Modales de perfil profesional para miembros seleccionados del equipo.
 - Modal de servicios con lista detallada por categoría.
 - Animaciones de aparición al hacer scroll (IntersectionObserver).
 - Scroll suave entre secciones.
@@ -116,6 +123,7 @@ mjk-abogados/
 |---|---|
 | Textos, secciones y estructura | `index.html` |
 | Colores, tipografía y espaciado | `css/styles.css` (variables en `:root`) |
+| Propuestas descargables | Sección `#propuestas` en `index.html` |
 | Servicios del slider | Array `servicesData` en `js/app.js` |
 | Perfiles del equipo | Objeto `teamMembersData` en `js/app.js` |
 | Número de WhatsApp | Buscar `573233400447` en `index.html` y `app.js` |
@@ -125,6 +133,6 @@ mjk-abogados/
 ## Notas importantes
 
 - El número de WhatsApp configurado es `+57 323 340 0447`.
-- Los modales de perfil completo están disponibles para: Lylly Marcela, Erik Cohen, Ana María Torres y Julián Díaz. Jonathan y Hernando muestran la card sin botón de perfil por ahora.
 - Los modales de equipo y servicios se cierran con el botón ✕, clic fuera del modal o tecla `Escape`.
 - El hero usa `background-size: cover` en todos los breakpoints para evitar espacios en blanco en móvil.
+- Las propuestas comerciales en PDF están alojadas en Google Drive y se abren en una nueva pestaña al hacer clic en "Descargar".
