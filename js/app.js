@@ -303,52 +303,7 @@ const servicesData = [
             'Resolución de reclamaciones de usuarios'
         ]
     },
-    {
-        name: 'Inmobiliarias',
-        icon: 'fas fa-building',
-        description: 'Asesoría para inmobiliarias en cobro a deudores y deudas de arrendatarios.',
-        items: [
-            'Recuperación de cartera',
-            'Cobro a deudores morosos',
-            'Anular deudas dejadas por arrendatarios'
-        ]
-    },
-    {
-        name: 'Propiedades Horizontales',
-        icon: 'fas fa-home',
-        description: 'Servicios legales para conjuntos cerrados y edificios en servicios públicos domiciliarios.',
-        items: [
-            'Exención en cobro de alumbrado público',
-            'Exención en cobro de aseo'
-        ]
-    },
-    {
-        name: 'Alcaldes',
-        icon: 'fas fa-city',
-        description: 'Asesoría técnica para alcaldes en empresas del estado y PGIR.',
-        items: [
-            'Creación de empresas comerciales e industriales del estado',
-            'Asesoría en creación de los PGIR'
-        ]
-    },
-    {
-        name: 'Concejales',
-        icon: 'fas fa-university',
-        description: 'Apoyo jurídico para control político y debates de empresas prestadoras de servicios públicos.',
-        items: [
-            'Asesoría personalizada en debates de control político',
-            'Análisis de empresas de servicios públicos domiciliarios'
-        ]
-    },
-    {
-        name: 'Constructoras',
-        icon: 'fas fa-hard-hat',
-        description: 'Asesoría para constructoras con servicios públicos domiciliarios y reclamos.',
-        items: [
-            'Asistencia personalizada en servicios públicos domiciliarios',
-            'Gestión en proyectos de construcción'
-        ]
-    }
+    
 ];
 
 let currentServiceIndex = 0;
