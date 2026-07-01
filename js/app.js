@@ -188,6 +188,21 @@ buttons.forEach(button => {
 
 const servicesData = [
     {
+        name: 'Servicios Públicos',
+        icon: 'fas fa-water',
+        description: 'Reclamaciones y anulaciones en servicios públicos domiciliarios y consumos indebidos.',
+        items: [
+            'Anular deudas dejadas por terceros',
+            'Anular cobro de recuperación de consumo "Sanción"',
+            'Anular consumos estimados',
+            'Anular cobro de medidores',
+            'Anular cobro de seguros',
+            'Anular cobro de reconexión',
+            'Disminuir cobro de contribuciones',
+            'Disminuir cobro de aseo (propiedades horizontales e inmuebles desocupados)'
+        ]
+    },
+    {
         name: 'Persona Natural',
         icon: 'fas fa-user',
         description: 'Asesoría integral en conciliaciones, insolvencias y reclamos ante entidades financieras.',
@@ -260,21 +275,7 @@ const servicesData = [
             'Asistencia en audiencias'
         ]
     },
-    {
-        name: 'Servicios Públicos',
-        icon: 'fas fa-water',
-        description: 'Reclamaciones y anulaciones en servicios públicos domiciliarios y consumos indebidos.',
-        items: [
-            'Anular deudas dejadas por terceros',
-            'Anular cobro de recuperación de consumo "Sanción"',
-            'Anular consumos estimados',
-            'Anular cobro de medidores',
-            'Anular cobro de seguros',
-            'Anular cobro de reconexión',
-            'Disminuir cobro de contribuciones',
-            'Disminuir cobro de aseo (propiedades horizontales e inmuebles desocupados)'
-        ]
-    },
+    
     {
         name: 'Comerciantes',
         icon: 'fas fa-store',
@@ -550,6 +551,22 @@ const teamMembersData = {
             'Asesora jurídica — Servicios públicos domiciliarios',
             'Especialista en derecho tributario territorial',
             'Asesora en adjudicación de apoyos y beneficios',
+        ]
+    },
+    Hernan: {
+        name: 'Hernando Alberto Atencio Cuello',
+        specialty: 'Abogado especialista en derecho administrativo',
+        img: 'img/Hernando alberto atencio cuello.jpeg',
+        perfil: 'Profesional del Derecho con experiencia en los sectores público y privado. Se caracteriza por su compromiso ético, capacidad de análisis jurídico y experiencia en procesos penales, derecho administrativo y enseñanza universitaria.',
+        formacion: [
+            'Abogado.',
+            'Especialista en Derecho Administrativo.'
+        ],
+        experiencia: [
+            'Más de 10 años como abogado penalista, participando en todas las etapas del proceso penal acusatorio.',
+            '4 años como docente universitario en asignaturas del área jurídica.',
+            'Experiencia en la Contraloría General de la República, desempeñando funciones relacionadas con el derecho administrativo y el control fiscal.',
+            
         ]
     },
     Julian: {
