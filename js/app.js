@@ -501,7 +501,7 @@ if (document.readyState === 'loading') {
 
 const teamMembersData = {
     erik: {
-        name: 'ERIK JANER COHEN MEDINA',
+        name: 'Erik Janer Cohen Medina',
         specialty: 'Consultor Servicios Públicos Domiciliarios',
         img: '/img/erik_cohen.jpeg',
         perfil: 'Ingeniero de Sistemas con Maestría en Servicios Públicos de la Universidad Externado de Colombia. Más de 20 años de experiencia en el sector público y privado, con profundo conocimiento del marco jurídico, regulatorio y tecnológico de los servicios públicos domiciliarios en Colombia.',
@@ -540,9 +540,9 @@ const teamMembersData = {
         ]
     },
     ANA: {
-        name: 'Ana María Torres Kammerer',
+        name: 'Ana María Torres Arroyo',
         specialty: 'Abogada',
-        img: '/img/ANA MARÍA TORRES KAMMERER.jpeg',
+        img: '/img/ANA MARÍA TORRES ARROYO.jpeg',
         perfil: 'Abogada con experiencia en asesoría jurídica a empresas en materia de servicios públicos, exenciones tributarias e impuesto predial. Ofrece acompañamiento integral en trámites administrativos y representación de clientes con ética y compromiso profesional.',
         formacion: [
             'Título de Abogada — Universidad'

@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Landing page para el despacho legal **MJK Abogados**. El sitio presenta la firma con navegación clara, secciones de información, propuestas descargables en PDF, portafolio de servicios interactivo, equipo profesional con modales de perfil, preguntas frecuentes y un formulario de contacto que envía el mensaje directamente por WhatsApp.
+Landing page para el despacho legal **MJK Abogados**. El sitio presenta la firma con navegación clara, secciones de información, propuestas descargables en PDF, portafolio de servicios interactivo, equipo profesional con modales de perfil, preguntas frecuentes, un formulario de contacto que envía el mensaje directamente por WhatsApp y una dirección de ubicación enlazada a Google Maps.
 
 El diseño transmite profesionalismo, confianza y accesibilidad, con una paleta elegante en tonos oscuros (`#0F172A`) y dorados (`#D4AF37`).
 
@@ -21,12 +21,15 @@ El diseño transmite profesionalismo, confianza y accesibilidad, con una paleta 
 3. **Propuestas**
    - Lista de propuestas comerciales descargables en PDF, organizadas por tipo de cliente.
    - Propuestas actuales:
-     - Empresarios y Comerciantes
-     - Conjuntos Cerrados, Edificios Residenciales
-     - Empresas de Paneles Solares
+     - Gobernadores y Alcaldes
+     - Diputados
+     - Concejos Municipales
+     - Empresas de Venta e Instalación de Paneles Solares
      - Empresas Constructoras
+     - Conjuntos Cerrados y Edificios
      - Inmobiliarias
      - Centros Comerciales
+     - Empresarios y Comerciantes
 
 4. **Portafolio de Servicios**
    - Slider interactivo con 8 categorías: Persona Natural, Laboral, Civil, Penal, Administrativo, Servicios Públicos, Comerciantes y Empresas.
@@ -34,7 +37,7 @@ El diseño transmite profesionalismo, confianza y accesibilidad, con una paleta 
    - Soporte para navegación con flechas, teclado (← →) y arrastre táctil.
 
 5. **CEO**
-   - Sección dedicada a **Melkis Junior Kammerer Diaz**, abogado especialista en servicios públicos y vocal de control de Valledupar.
+   - Sección dedicada a **Melkis Junior Kammerer**, abogado especialista en servicios públicos con amplia experiencia en el sector y actualmente vocal de control de Valledupar.
    - Layout de dos columnas: texto a la izquierda, foto con marco dorado a la derecha.
 
 6. **Equipo**
@@ -44,7 +47,7 @@ El diseño transmite profesionalismo, confianza y accesibilidad, con una paleta 
      - **Lylly Marcela Mendoza Márquez** — Ingeniera Ambiental y Sanitaria
      - **Erik Janer Cohen Medina** — Consultor Servicios Públicos Domiciliarios
      - **Julián Santiago Díaz Briceño** — Consultor Externo
-     - **Ana María Torres Kammerer** — Abogada
+     - **Ana María Torres Arroyo** — Abogada
      - **Jonathan Fernando Perez Vega** — Abogado Penalista
      - **Hernando Alberto Atencio Cuello** — Abogado especialista en derecho administrativo
    - Los modales de perfil completo están disponibles para: Lylly Marcela, Erik Cohen, Ana María Torres y Julián Díaz. Jonathan y Hernando muestran la card sin botón de perfil por ahora.
@@ -55,7 +58,7 @@ El diseño transmite profesionalismo, confianza y accesibilidad, con una paleta 
 8. **Contacto**
    - Formulario con nombre, correo, teléfono y mensaje.
    - Envío abre WhatsApp con mensaje prellenado. No requiere backend.
-   - Información adicional: WhatsApp, correo, Instagram, TikTok, Facebook, dirección (Calle 13A # 11A - 41, Valledupar - Cesar) y cobertura nacional.
+   - Información adicional: WhatsApp, correo, Instagram, TikTok, Facebook, dirección enlazada a Google Maps (Calle 13A # 11A - 41, Valledupar - Cesar) y cobertura nacional.
 
 ---
 
@@ -89,7 +92,7 @@ mjk-abogados/
 │   ├── melkis kammerer.jpeg
 │   ├── erik_cohen.jpeg
 │   ├── lilly_marcela.jpeg
-│   ├── ANA MARÍA TORRES KAMMERER.jpeg
+│   ├── ANA MARÍA TORRES ARROYO.jpeg
 │   ├── Julián Santiago Díaz Briceño.png
 │   ├── JONATHAN FERNANDO PEREZ VEGA.jpeg
 │   └── Hernando alberto atencio cuello.jpeg
