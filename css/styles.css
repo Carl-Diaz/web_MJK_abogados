@@ -148,13 +148,13 @@ body {
 
 .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--primary-dark) 0%, #1a2847 100%);
+    background-color: var(--primary-dark);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    background-image: url("../img/imagen-principal.jpeg");
+    background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.58) 0%, rgba(26, 40, 71, 0.52) 100%), url("../img/imagen-principal.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
