@@ -503,7 +503,7 @@ const teamMembersData = {
     erik: {
         name: 'Erik Janer Cohen Medina',
         specialty: 'Consultor Servicios Públicos Domiciliarios',
-        img: '/img/erik_cohen.jpeg',
+        img: 'img/erik_cohen.jpeg',
         perfil: 'Ingeniero de Sistemas con Maestría en Servicios Públicos de la Universidad Externado de Colombia. Más de 20 años de experiencia en el sector público y privado, con profundo conocimiento del marco jurídico, regulatorio y tecnológico de los servicios públicos domiciliarios en Colombia.',
         formacion: [
             'Ingeniero de Sistemas — Universidad Autónoma del Caribe',
@@ -524,7 +524,7 @@ const teamMembersData = {
     lilly: {
         name: 'Lylly Marcela Mendoza Márquez',
         specialty: 'Ingeniera Ambiental y Sanitaria',
-        img: '/img/lilly_marcela.jpeg',
+        img: 'img/lilly_marcela.jpeg',
         perfil: 'Profesional comprometida con la sostenibilidad y la gestión eficiente de los recursos naturales. Especialista en Gestión Ambiental y Energética con experiencia en diagnósticos ambientales, auditorías, diseño de indicadores de desempeño y programas de capacitación para empresas e instituciones.',
         formacion: [
             'Ingeniería Ambiental y Sanitaria',
@@ -542,7 +542,7 @@ const teamMembersData = {
     ANA: {
         name: 'Ana María Torres Arroyo',
         specialty: 'Abogada',
-        img: '/img/ANA MARÍA TORRES ARROYO.jpeg',
+        img: 'img/ANA MARÍA TORRES ARROYO.jpeg',
         perfil: 'Abogada con experiencia en asesoría jurídica a empresas en materia de servicios públicos, exenciones tributarias e impuesto predial. Ofrece acompañamiento integral en trámites administrativos y representación de clientes con ética y compromiso profesional.',
         formacion: [
             'Título de Abogada — Universidad'
@@ -572,7 +572,7 @@ const teamMembersData = {
     Julian: {
         name: 'Julián Santiago Díaz Briceño',
         specialty: 'Consultor Externo',
-        img: '/img/Julián Santiago Díaz Briceño.png',
+        img: 'img/Julián Santiago Díaz Briceño.png',
         perfil: 'Abogado especialista en Derecho Administrativo con trayectoria en entidades públicas y sector privado. Cursando Maestría en Servicios Públicos en la Universidad Externado de Colombia. Con experiencia en la Superintendencia de Servicios Públicos, el Consejo de Estado y la Escuela Judicial "Rodrigo Lara Bonilla", brinda asesoría jurídica en derecho administrativo, servicios públicos domiciliarios, procesos sancionatorios y litigio contencioso administrativo y constitucional.',
         formacion: [
             'Abogado especialista en Derecho Administrativo',
