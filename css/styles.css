@@ -715,6 +715,19 @@ body {
     .team-card-body {
         margin-top: -50px;
     }
+
+    .team-card h3 {
+        font-size: 1rem;
+        line-height: 1.2;
+        text-wrap: balance;
+    }
+}
+
+@media (max-width: 540px) {
+    .team-card h3 {
+        font-size: 0.95rem;
+        line-height: 1.15;
+    }
 }
 /* ============================================
    SECCIÓN CEO
