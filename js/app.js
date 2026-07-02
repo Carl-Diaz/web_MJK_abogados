@@ -572,7 +572,7 @@ const teamMembersData = {
     Julian: {
         name: 'Julián Santiago Díaz Briceño',
         specialty: 'Consultor Externo',
-        img: 'img/Julián Santiago Díaz Briceño.png',
+        img: 'img/Julián Santiago Díaz Briceño.jpeg',
         perfil: 'Abogado especialista en Derecho Administrativo con trayectoria en entidades públicas y sector privado. Cursando Maestría en Servicios Públicos en la Universidad Externado de Colombia. Con experiencia en la Superintendencia de Servicios Públicos, el Consejo de Estado y la Escuela Judicial "Rodrigo Lara Bonilla", brinda asesoría jurídica en derecho administrativo, servicios públicos domiciliarios, procesos sancionatorios y litigio contencioso administrativo y constitucional.',
         formacion: [
             'Abogado especialista en Derecho Administrativo',
