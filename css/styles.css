@@ -65,37 +65,36 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1.5rem;
+    max-width: 90%;
+    width: 100%;
+    padding: 0 8px;
 }
 
 .navbar-brand {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-right: auto;
 }
 
 .logo {
-    height: 50px;
+    height: 60px;
     width: auto;
 }
 
 .brand-name {
     color: var(--gold);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     font-family: 'Playfair Display', serif;
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .brand-name {
-        display: inline;
-    }
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 4rem;
+    margin-left: auto;
 }
 
 .nav-menu a {
@@ -154,7 +153,7 @@ body {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    background-image: url("../img/imagen-principal.jpeg");
+    background-image: url("../img/imagen-principal.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -184,18 +183,7 @@ body {
     color: var(--light-gray);
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 1.5rem 2.5rem;
-    border-radius: 12px;
-    backdrop-filter: blur(4px);
-    width: fit-content;
-    margin: 0 auto;
-}
+
 
 @media (max-width: 1024px) {
     .hero {
@@ -259,10 +247,7 @@ body {
         margin-bottom: 1rem;
     }
 
-    .hero-buttons {
-        padding: 1rem 1.25rem;
-        gap: 0.75rem;
-    }
+    
 }
 
 /* ============================================
@@ -329,7 +314,7 @@ body {
     font-size: 2.5rem;
     text-align: center;
     color: var(--primary-dark);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     border-bottom: 3px solid var(--gold);
     padding-bottom: 1rem;
     display: inline-block;
@@ -431,6 +416,31 @@ body {
     line-height: 1.7;
 }
 
+.about-accordion-toggle {
+    width: 100%;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    cursor: default;
+    padding: 0;
+}
+
+.about-accordion-toggle h4 {
+    margin-bottom: 0.85rem;
+}
+
+.about-accordion-toggle i {
+    display: none;
+}
+
+.about-accordion-content {
+    max-height: none;
+    overflow: visible;
+}
+
 @media (max-width: 768px) {
     .about h2 {
         font-size: 1.8rem;
@@ -439,6 +449,49 @@ body {
     .about-content {
         gap: 1.5rem;
     }
+
+    .about-accordion-toggle {
+        cursor: pointer;
+        align-items: center;
+        min-height: 32px;
+    }
+
+    .about-accordion-toggle h4 {
+        margin-bottom: 0;
+        line-height: 1.3;
+    }
+
+    .about-card--values {
+        padding: 1.2rem;
+    }
+
+    .about-accordion-toggle i {
+        display: inline-block;
+        color: var(--primary-dark);
+        transition: transform 0.3s ease;
+    }
+
+    .about-accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+    }
+
+    .about-accordion-item.active .about-accordion-content {
+        max-height: 900px;
+    }
+
+    .about-accordion-item.active .about-accordion-toggle i {
+        transform: rotate(180deg);
+    }
+
+    .about-accordion-item.active .about-accordion-content p:first-child {
+        margin-top: 0.85rem;
+    }
+
+    .about-accordion-item.active .about-accordion-content p:last-child {
+        margin-bottom: 0;
+    }
 }
 
 /* ============================================
@@ -446,7 +499,7 @@ body {
    ============================================ */
 
 .propuestas {
-    padding: 10px 0;
+    padding: 30px 0;
     background: var(--light-gray);
 }
 
@@ -462,9 +515,38 @@ body {
     width: 100%;
 }
 
+.propuestas-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.propuestas-toggle i {
+    display: none;
+}
+
 .propuestas-lista {
     max-width: 900px;
     margin: 0 auto;
+}
+
+.propuestas-banner {
+    width: 100vw;
+    max-width: none;
+    margin: 0 0 1.5rem;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.propuestas-banner img {
+    display: block;
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
 }
 
 .propuesta-fila {
@@ -528,8 +610,45 @@ body {
 }
 
 @media (max-width: 768px) {
+
     .propuestas h2 {
         font-size: 1.8rem;
+    }
+
+    .propuestas-toggle {
+        cursor: pointer;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .propuestas-toggle i {
+        display: inline-block;
+        color: var(--primary-dark);
+        font-size: 0.95rem;
+        transition: transform 0.3s ease;
+    }
+
+    .propuestas-lista {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+    }
+
+    .propuestas.active .propuestas-lista {
+        max-height: 2600px;
+    }
+
+    .propuestas.active .propuestas-toggle i {
+        transform: rotate(180deg);
+    }
+
+    .propuestas-banner {
+        margin-bottom: 1.2rem;
+        border-radius: 0;
+    }
+
+    .propuestas-banner img {
+        height: 760px;
     }
 
     .propuesta-fila {
@@ -621,13 +740,38 @@ body {
     width: 100%;
 }
 
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+.team-slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    gap: 0.85rem;
+}
+
+.team-slider {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    padding: 2px;
+}
+
+.team-slider-track {
+    display: flex;
+    align-items: stretch;
+    gap: 1rem;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    touch-action: pan-y;
+    cursor: grab;
+}
+
+.team-slider-track.dragging {
+    cursor: grabbing;
+    transition: none;
 }
 
 .team-card {
+    
     background: var(--white);
     border-radius: 16px;
     overflow: hidden;
@@ -635,6 +779,12 @@ body {
     transition: var(--transition);
     text-align: center;
     position: relative;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    min-height: 640px;
 }
 
 .team-card:hover {
@@ -654,15 +804,17 @@ body {
     position: relative;
     padding: 1.5rem 1.5rem 1.75rem;
     margin-top: -60px;
-    background: linear-gradient(to bottom, transparent 0%, white 15%);
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .team-card h3 {
     font-size: 1.2rem;
     color: var(--primary-dark);
     margin-bottom: 0.4rem;
-    padding-top: 0.5rem;
+    padding-top: 2.5rem;
 }
 
 .team-card .specialty {
@@ -678,6 +830,7 @@ body {
     font-size: 0.92rem;
     line-height: 1.6;
     margin-bottom: 1.25rem;
+    text-align: center;
 }
 
 .team-profile-btn {
@@ -691,6 +844,7 @@ body {
     transition: var(--transition);
     width: 100%;
     font-size: 0.95rem;
+    margin-top: auto;
 }
 
 .team-profile-btn:hover {
@@ -704,12 +858,26 @@ body {
         font-size: 1.8rem;
     }
 
-    .team-grid {
-        grid-template-columns: 1fr;
+    .team-slider-container {
+        gap: 0.5rem;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .team-slider {
+        padding: 0;
+    }
+
+    .team-slider-track {
+        gap: 0.7rem;
     }
 
     .team-card img {
         height: 280px;
+    }
+
+    .team-card {
+        min-height: 620px;
     }
 
     .team-card-body {
@@ -721,12 +889,21 @@ body {
         line-height: 1.2;
         text-wrap: balance;
     }
+
 }
 
 @media (max-width: 540px) {
+    .team-slider-container {
+        gap: 0.5rem;
+    }
+
     .team-card h3 {
         font-size: 0.95rem;
         line-height: 1.15;
+    }
+
+    .team-card {
+        min-height: 620px;
     }
 }
 /* ============================================
@@ -734,7 +911,7 @@ body {
    ============================================ */
 
 .ceo {
-    padding: 5px 0;
+    padding: 20px 0 50px 0;
     background: var(--white);
 }
 
@@ -1220,7 +1397,7 @@ body {
 }
 
 .footer-logo {
-    height: 60px;
+    height: 130px;
     width: auto;
     margin-bottom: 1rem;
 }
@@ -1509,7 +1686,7 @@ section {
     border-radius: 16px;
     padding: 2rem;
     position: relative;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 18);
     animation: slideIn 0.3s ease;
     overflow-y: auto;
     max-height: 85vh;

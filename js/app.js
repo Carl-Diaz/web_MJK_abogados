@@ -42,6 +42,91 @@ faqQuestions.forEach(question => {
 });
 
 // ============================================
+// ABOUT VALUES ACCORDION (MOBILE)
+// ============================================
+
+const aboutAccordionItems = document.querySelectorAll('.about-accordion-item');
+const aboutAccordionToggles = document.querySelectorAll('.about-accordion-toggle');
+const aboutMobileQuery = window.matchMedia('(max-width: 768px)');
+
+function resetAboutAccordion() {
+    aboutAccordionItems.forEach(item => {
+        item.classList.remove('active');
+    });
+}
+
+function handleAboutAccordionClick(event) {
+    if (!aboutMobileQuery.matches) return;
+
+    const currentItem = event.currentTarget.closest('.about-accordion-item');
+    const isActive = currentItem.classList.contains('active');
+
+    resetAboutAccordion();
+
+    if (!isActive) {
+        currentItem.classList.add('active');
+    }
+}
+
+aboutAccordionToggles.forEach(toggle => {
+    toggle.addEventListener('click', handleAboutAccordionClick);
+});
+
+if (!aboutMobileQuery.matches) {
+    resetAboutAccordion();
+}
+
+aboutMobileQuery.addEventListener('change', (event) => {
+    if (!event.matches) {
+        resetAboutAccordion();
+    }
+});
+
+// ============================================
+// PROPUESTAS ACCORDION (MOBILE)
+// ============================================
+
+const propuestasSection = document.querySelector('.propuestas');
+const propuestasToggle = document.querySelector('.propuestas-toggle');
+const propuestaMobileQuery = window.matchMedia('(max-width: 768px)');
+
+function closePropuestasAccordion() {
+    if (!propuestasSection || !propuestasToggle) return;
+
+    propuestasSection.classList.remove('active');
+    propuestasToggle.setAttribute('aria-expanded', 'false');
+}
+
+function togglePropuestasAccordion() {
+    if (!propuestasSection || !propuestasToggle || !propuestaMobileQuery.matches) return;
+
+    const isActive = propuestasSection.classList.contains('active');
+    propuestasSection.classList.toggle('active', !isActive);
+    propuestasToggle.setAttribute('aria-expanded', String(!isActive));
+}
+
+if (propuestasToggle) {
+    propuestasToggle.addEventListener('click', togglePropuestasAccordion);
+
+    propuestasToggle.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            togglePropuestasAccordion();
+        }
+    });
+}
+
+if (!propuestaMobileQuery.matches) {
+    closePropuestasAccordion();
+}
+
+propuestaMobileQuery.addEventListener('change', (event) => {
+    if (!event.matches) {
+        closePropuestasAccordion();
+    }
+});
+
+// ============================================
 // CONTACT FORM HANDLING
 // ============================================
 
@@ -496,6 +581,141 @@ if (document.readyState === 'loading') {
 }
 
 // ============================================
+// EQUIPO SLIDER
+// ============================================
+
+let currentTeamIndex = 0;
+
+function initTeamSlider() {
+    const sliderTrack = document.getElementById('teamSliderTrack');
+    const prevButton = document.getElementById('teamSliderPrev');
+    const nextButton = document.getElementById('teamSliderNext');
+
+    if (!sliderTrack || !prevButton || !nextButton) return;
+
+    const teamSlides = Array.from(sliderTrack.querySelectorAll('.team-card'));
+    if (!teamSlides.length) return;
+
+    function getVisibleCount() {
+        const width = window.innerWidth;
+        if (width >= 1000) return 3;
+        if (width >= 680) return 2;
+        return 1;
+    }
+
+    function getTrackSizes(visibleCount) {
+        const style = window.getComputedStyle(sliderTrack);
+        const gap = parseFloat(style.gap) || 0;
+        const trackWidth = sliderTrack.clientWidth;
+        const slideWidth = Math.max(0, (trackWidth - gap * (visibleCount - 1)) / visibleCount);
+        return { slideWidth, gap };
+    }
+
+    function applySlideSizes() {
+        const visibleCount = getVisibleCount();
+        const { slideWidth } = getTrackSizes(visibleCount);
+
+        teamSlides.forEach(slide => {
+            slide.style.flex = `0 0 ${slideWidth}px`;
+            slide.style.maxWidth = `${slideWidth}px`;
+        });
+    }
+
+    function getTrackOffset(index, visibleCount) {
+        const { slideWidth, gap } = getTrackSizes(visibleCount);
+        return index * (slideWidth + gap);
+    }
+
+    function updateSlider() {
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(0, teamSlides.length - visibleCount);
+        if (currentTeamIndex > maxIndex) {
+            currentTeamIndex = maxIndex;
+        }
+
+        const offset = getTrackOffset(currentTeamIndex, visibleCount);
+        sliderTrack.style.transform = `translateX(-${offset}px)`;
+    }
+
+    function prevSlide() {
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(0, teamSlides.length - visibleCount);
+        currentTeamIndex = (currentTeamIndex - 1 + maxIndex + 1) % (maxIndex + 1);
+        updateSlider();
+    }
+
+    function nextSlide() {
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(0, teamSlides.length - visibleCount);
+        currentTeamIndex = (currentTeamIndex + 1) % (maxIndex + 1);
+        updateSlider();
+    }
+
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragCurrentOffset = 0;
+
+    function startDrag(event) {
+        isDragging = true;
+        dragStartX = event.clientX;
+        dragCurrentOffset = getTrackOffset(currentTeamIndex, getVisibleCount());
+        sliderTrack.classList.add('dragging');
+        event.preventDefault();
+    }
+
+    function moveDrag(event) {
+        if (!isDragging) return;
+        const currentX = event.clientX;
+        const delta = currentX - dragStartX;
+        sliderTrack.style.transform = `translateX(-${Math.max(0, dragCurrentOffset - delta)}px)`;
+    }
+
+    function endDrag(event) {
+        if (!isDragging) return;
+        isDragging = false;
+        sliderTrack.classList.remove('dragging');
+        const delta = event.clientX - dragStartX;
+        const threshold = 70;
+
+        if (delta < -threshold) {
+            nextSlide();
+        } else if (delta > threshold) {
+            prevSlide();
+        } else {
+            updateSlider();
+        }
+    }
+
+    prevButton.addEventListener('click', prevSlide);
+    nextButton.addEventListener('click', nextSlide);
+    sliderTrack.addEventListener('pointerdown', startDrag);
+    sliderTrack.addEventListener('pointermove', moveDrag);
+    window.addEventListener('pointerup', endDrag);
+    window.addEventListener('pointercancel', endDrag);
+    sliderTrack.addEventListener('dragstart', (event) => event.preventDefault());
+
+    window.addEventListener('resize', () => {
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(0, teamSlides.length - visibleCount);
+        if (currentTeamIndex > maxIndex) {
+            currentTeamIndex = maxIndex;
+        }
+
+        applySlideSizes();
+        updateSlider();
+    });
+
+    applySlideSizes();
+    updateSlider();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTeamSlider);
+} else {
+    initTeamSlider();
+}
+
+// ============================================
 // MODAL EQUIPO
 // ============================================
 
@@ -583,6 +803,22 @@ const teamMembersData = {
             'Consejo de Estado',
             'Escuela Judicial "Rodrigo Lara Bonilla"',
             'Consultor externo en asesoría jurídica a clientes en energía y servicios públicos domiciliarios'
+        ]
+    },
+    Yelenis: {
+        name: 'Yelenis Enid Navarro Gamez',
+        specialty: 'Abogada',
+        img: 'img/Yelenis Enid Navarro Gamez.jpeg',
+        perfil: 'Persona proactiva, organizada y responsable, con buenas relaciones interpersonales. Se destaca por su disposición para el aprendizaje continuo y la realización eficiente de sus labores, buscando siempre asumir nuevos retos profesionales.',
+        formacion: [
+            'Abogada – Universidad Popular del Cesar (2023).',
+            'Diplomado en Docencia Universitaria – Politécnico de Colombia.'
+        ],
+        experiencia: [
+            'Judicante Ad Honorem – Juzgado Primero Penal del Circuito Especializado de Valledupar (septiembre de 2021 – julio de 2022).',
+            'Dependiente Judicial – Despacho de la Abogada Laura Elena Luque Cadavid (febrero de 2020 – agosto de 2021).',
+            'Organización de expedientes físicos y digitales',
+            'Registro de actuaciones procesales.'
         ]
     }
 };
