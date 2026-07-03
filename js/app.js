@@ -640,14 +640,14 @@ function initTeamSlider() {
     function prevSlide() {
         const visibleCount = getVisibleCount();
         const maxIndex = Math.max(0, teamSlides.length - visibleCount);
-        currentTeamIndex = (currentTeamIndex - 1 + maxIndex + 1) % (maxIndex + 1);
+        currentTeamIndex = Math.max(0, currentTeamIndex - 1);
         updateSlider();
     }
 
     function nextSlide() {
         const visibleCount = getVisibleCount();
         const maxIndex = Math.max(0, teamSlides.length - visibleCount);
-        currentTeamIndex = (currentTeamIndex + 1) % (maxIndex + 1);
+        currentTeamIndex = Math.min(maxIndex, currentTeamIndex + 1);
         updateSlider();
     }
 
@@ -830,8 +830,16 @@ function initTeamModal() {
     if (!modal || !modalClose) return;
 
     document.querySelectorAll('.team-profile-btn').forEach(btn => {
+        const key = btn.dataset.member;
+        if (!key || !teamMembersData[key]) {
+            btn.disabled = true;
+            btn.title = 'Perfil no disponible por el momento';
+            btn.style.opacity = '0.65';
+            btn.style.cursor = 'not-allowed';
+            return;
+        }
+
         btn.addEventListener('click', () => {
-            const key = btn.dataset.member;
             const member = teamMembersData[key];
             if (!member) return;
 
